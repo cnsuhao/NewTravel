@@ -25,4 +25,14 @@ class Box extends egret.Sprite{
     {
         this.txt.text = value;
     }
+    
+    public set boxWidth(w: number)
+    {
+        var g: egret.Graphics = this.graphics;
+        g.clear();
+        g.lineStyle(2, 0xffffff);
+        g.beginFill(0x00ff00);
+        g.drawRect(0,0, w, 120);
+        g.endFill();
+    }
 }

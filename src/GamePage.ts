@@ -17,6 +17,9 @@ class GamePage extends egret.Sprite{
     
     private lineLength: number = 0;
     
+    private FALL_SPEED:number = 15;
+    private MOVE_SPEED: number = 2;
+    
     public constructor() {
         super();
         var g: egret.Graphics = this.graphics;
@@ -25,15 +28,16 @@ class GamePage extends egret.Sprite{
         g.drawRect(0,0,480,800);
         g.endFill();
         
-        this.boxesInfo = [  {add:"A", distance:10}, 
-                            {add:"B", distance:150},
-                            {add:"C", distance:300},
-                            {add:"D", distance:290 + 150},
-                            {add:"E", distance:380 + 200},
-                            {add:"F", distance:480 + 250},
-                            {add:"G", distance:570 + 300},
-                            {add:"H", distance:670 + 350},
-                            {add:"I", distance:780 + 400}];
+        //游戏格子配置信息，add:字符，可能会换成图片，distance:格子左上角距离舞台左边界的距离，width，格子的宽度
+        this.boxesInfo = [  {add:"A", distance:10, width:80}, 
+                            {add:"B", distance:150, width:60},
+                            {add:"C", distance:300, width:50},
+                            {add:"D", distance:290 + 150, width:90},
+                            {add:"E", distance:380 + 200, width:80},
+                            {add:"F", distance:480 + 250, width:40},
+                            {add:"G", distance:570 + 300, width:90},
+                            {add:"H", distance:670 + 350, width:20},
+                            {add:"I", distance:780 + 400, width:80}];
         
         this.createBoxes();
         this.currentBox = this.boxes[this.cursor];
@@ -58,6 +62,7 @@ class GamePage extends egret.Sprite{
         {
             var box: Box = new Box();
             box.add = this.boxesInfo[i].add;
+            box.boxWidth = this.boxesInfo[i].width;
             box.x = this.boxesInfo[i].distance;
             box.y = 720;
             this.addChild(box);
@@ -87,7 +92,7 @@ class GamePage extends egret.Sprite{
             this.currentLine.updateShape(this.lineLength += 3);
         }
         else if(this.status == 2) {
-            this.persion.x += 2;
+            this.persion.x += this.MOVE_SPEED;
             if(this.persion.x >= this.resultPos) {
                 console.log("SSSSSSSSSSSSSSSSS:" + this.persion.x);
                 this.over("RoundComplete");
@@ -95,7 +100,7 @@ class GamePage extends egret.Sprite{
         }
         else if(this.status == 3)
         {
-            this.persion.y += 15;
+            this.persion.y += this.FALL_SPEED;
             if(this.persion.y > 800)
             {
                 this.status = 4;
@@ -161,7 +166,7 @@ class GamePage extends egret.Sprite{
         }
         else
         {
-            
+            //游戏全部通关的处理
         }
     }
     

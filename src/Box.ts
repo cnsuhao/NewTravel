@@ -34,5 +34,6 @@ class Box extends egret.Sprite{
         g.beginFill(0x00ff00);
         g.drawRect(0,0, w, 120);
         g.endFill();
+        this.txt.width = w;
     }
 }

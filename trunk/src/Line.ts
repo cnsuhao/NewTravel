@@ -7,7 +7,7 @@ class Line extends egret.Shape{
 	public constructor() {
         super();
         var g: egret.Graphics = this.graphics;
-        g.lineStyle(2, 0xffffff);
+        g.lineStyle(2, 0xff0000);
         g.moveTo(0,0);
         g.lineTo(1,0);
 	}
@@ -16,7 +16,7 @@ class Line extends egret.Shape{
     {
         var g: egret.Graphics = this.graphics;
         g.clear();
-        g.lineStyle(2, 0xffffff);
+        g.lineStyle(2, 0xff0000);
         g.moveTo(0,0);
         g.lineTo(ln,0);
     }

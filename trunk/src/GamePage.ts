@@ -19,25 +19,30 @@ class GamePage extends egret.Sprite{
     
     private FALL_SPEED:number = 15;//人物掉落速度
     private MOVE_SPEED: number = 2;//人物移动速度
+    private LINE_GROW_SPEED: number = 3;//线的增长速度
     
     public constructor() {
         super();
         var g: egret.Graphics = this.graphics;
         //g.lineStyle(2, 0xffffff);
-        g.beginFill(0x000000);
-        g.drawRect(0,0,480,800);
+        g.beginFill(0x000000, 0);
+        g.drawRect(0,0, Global.WIDTH * 4, Global.HEIGHT);
         g.endFill();
         
+        /*var bmp: egret.Bitmap = new egret.Bitmap();
+        bmp.texture = RES.getRes("3_1_0");
+        this.addChild(bmp);*/
+        
         //游戏格子配置信息，add:字符，可能会换成图片，distance:格子左上角距离舞台左边界的距离，width，格子的宽度
-        this.boxesInfo = [  {add:"A", distance:10, width:80}, 
-                            {add:"B", distance:150, width:60},
-                            {add:"C", distance:300, width:50},
-                            {add:"D", distance:290 + 150, width:90},
-                            {add:"E", distance:380 + 200, width:80},
-                            {add:"F", distance:480 + 250, width:40},
-                            {add:"G", distance:570 + 300, width:90},
-                            {add:"H", distance:670 + 350, width:20},
-                            {add:"I", distance:780 + 400, width:80}];
+        this.boxesInfo = [  {add:"A", distance:10, width:80,res:"b_1"}, 
+                            {add:"B", distance:150, width:60,res:"b_2"},
+                            {add:"C", distance:300, width:50,res:"b_2"},
+                            {add:"D", distance:290 + 150, width:90,res:"b_1"},
+                            {add:"E", distance:380 + 200, width:80,res:"b_3"},
+                            {add:"F", distance:480 + 250, width:40,res:"b_3"},
+                            {add:"G", distance:570 + 300, width:90,res:"b_3"},
+                            {add:"H", distance:670 + 350, width:20,res:"b_1"},
+                            {add:"I", distance:780 + 400, width:80,res:"b_2"}];
         
         this.createBoxes();
         this.currentBox = this.boxes[this.cursor];
@@ -47,13 +52,13 @@ class GamePage extends egret.Sprite{
         this.persion.y = this.currentBox.y;
         this.addChild(this.persion);
         
-        this.init(this.cursor);
-        
         this.addEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onTouchBegin,this);
         this.addEventListener(egret.TouchEvent.TOUCH_END,this.onTouchEnd,this);
         this.addEventListener(egret.Event.ENTER_FRAME,this.onEnterFrame,this);
         
         this.touchEnabled = true;
+        
+        this.init(this.cursor);
 	}
 	
     private createBoxes(): void
@@ -64,7 +69,8 @@ class GamePage extends egret.Sprite{
             box.add = this.boxesInfo[i].add;
             box.boxWidth = this.boxesInfo[i].width;
             box.x = this.boxesInfo[i].distance;
-            box.y = 720;
+            box.y = Global.HEIGHT - box.height;
+            //box.setBg(this.boxesInfo[i].res);
             this.addChild(box);
             this.boxes.push(box);
         }
@@ -80,8 +86,18 @@ class GamePage extends egret.Sprite{
     
     private onTouchEnd(evt: egret.TouchEvent): void
     {
-        this.status = 2; 
+        /*this.status = 2; 
         this.currentLine.rotation = 0;
+        this.lineLength = 1;
+        this.result();*/
+        this.status = -1;
+        var self: GamePage = this;
+        egret.Tween.get(self.currentLine, { loop: false }).to({ "rotation": 0 },300).call(self.onComplete, self);
+    }
+    
+    private onComplete(): void
+    {
+        this.status = 2; 
         this.lineLength = 1;
         this.result();
     }
@@ -89,13 +105,16 @@ class GamePage extends egret.Sprite{
     private onEnterFrame(event: egret.Event): void
     {
         if(this.status == 1) {
-            this.currentLine.updateShape(this.lineLength += 3);
+            this.currentLine.updateShape(this.lineLength += this.LINE_GROW_SPEED);
         }
         else if(this.status == 2) {
             this.persion.x += this.MOVE_SPEED;
             if(this.persion.x >= this.resultPos) {
-                console.log("SSSSSSSSSSSSSSSSS:" + this.persion.x);
-                this.over("RoundComplete");
+                //console.log("fffffffffffffffff:" + this.cursor);
+                if(this.cursor < this.boxesInfo.length - 3)
+                    this.over("RoundComplete");
+                else
+                    this.over("GameComplete");
             }
         }
         else if(this.status == 3)
@@ -119,6 +138,9 @@ class GamePage extends egret.Sprite{
         }
         this.currentBox = this.boxes[cursor];
         this.nextBox = this.boxes[cursor+1];
+        var main: Main = <Main>this.parent;
+        if (main)
+            main.txtGate.text = "第" + (cursor+1) + "关";
         
         this.persion.x = this.currentBox.x + this.currentBox.width - 5;
         this.persion.y = this.currentBox.y;
@@ -129,7 +151,14 @@ class GamePage extends egret.Sprite{
         this.lineLength = this.currentLine.width;
         this.addChild(this.currentLine);
         
-        this.x = -this.currentBox.x;
+        //this.x = -this.currentBox.x;
+        
+        var self: GamePage = this;
+        var tw = egret.Tween.get(self);
+        tw.to({"x": -self.currentBox.x}, 300);
+        //tw.wait(2000);
+        //tw.to({"alpha": 0}, 200);
+        //tw.call(change, self);
     }
     
     private resultTag: number = 0;
@@ -149,7 +178,7 @@ class GamePage extends egret.Sprite{
             this.resultTag = 2;//成功
             this.resultPos = this.nextBox.x + this.nextBox.width - 5;
         }
-        console.log("xxxxxxxxxxxxxxxxxx:" + this.resultTag + ":::" + this.resultPos);
+        //console.log("xxxxxxxxxxxxxxxxxx:" + this.resultTag + ":::" + this.resultPos);
     }
     
     private over(type:string):void
@@ -167,6 +196,9 @@ class GamePage extends egret.Sprite{
         else
         {
             //游戏全部通关的处理
+            var main: Main = <Main>this.parent;
+            if(main)
+                main.addCompletePage();
         }
     }
     

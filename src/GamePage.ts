@@ -100,6 +100,7 @@ class GamePage extends egret.Sprite{
         this.status = 2; 
         this.lineLength = 1;
         this.result();
+        this.persion.walk();
     }
     
     private onEnterFrame(event: egret.Event): void
@@ -142,7 +143,7 @@ class GamePage extends egret.Sprite{
         if (main)
             main.txtGate.text = "第" + (cursor+1) + "关";
         
-        this.persion.x = this.currentBox.x + this.currentBox.width - 5;
+        this.persion.x = this.currentBox.x + this.currentBox.width - 10;
         this.persion.y = this.currentBox.y;
         this.currentLine = new Line();
         this.currentLine.x = this.currentBox.x + this.currentBox.width;
@@ -176,13 +177,14 @@ class GamePage extends egret.Sprite{
         else
         {
             this.resultTag = 2;//成功
-            this.resultPos = this.nextBox.x + this.nextBox.width - 5;
+            this.resultPos = this.nextBox.x + this.nextBox.width - 10;
         }
         //console.log("xxxxxxxxxxxxxxxxxx:" + this.resultTag + ":::" + this.resultPos);
     }
     
     private over(type:string):void
     {
+        this.persion.stand();
         if(type == "RoundComplete") {
             if(this.resultTag == 1) {
                 this.status = 3;

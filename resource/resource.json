@@ -1,7 +1,7 @@
 {
 	"groups":[
 	{
-		"keys":"3_1,3_1_0,3_5,b_3,b_1,b_2",
+		"keys":"3_1,3_1_0,3_5,b_3,b_1,b_2,person_json,person_png",
 		"name":"preload"
 	}],
 	"resources":[
@@ -34,5 +34,15 @@
 		"name":"b_2",
 		"type":"image",
 		"url":"assets/b_2.png"
+	},
+	{
+		"name":"person_json",
+		"type":"json",
+		"url":"assets/person.json"
+	},
+	{
+		"name":"person_png",
+		"type":"image",
+		"url":"assets/person.png"
 	}]
 }

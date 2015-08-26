@@ -17,8 +17,8 @@ class GamePage extends egret.Sprite{
     
     private lineLength: number = 0;
     
-    private FALL_SPEED:number = 15;
-    private MOVE_SPEED: number = 2;
+    private FALL_SPEED:number = 15;//人物掉落速度
+    private MOVE_SPEED: number = 2;//人物移动速度
     
     public constructor() {
         super();

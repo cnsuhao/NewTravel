@@ -100,7 +100,8 @@ class Main extends egret.DisplayObjectContainer {
         }
     }
 
-    private textfield:egret.TextField;
+    //过关
+    public txtGate:egret.TextField;
 
     /**
      * 创建游戏场景
@@ -109,20 +110,36 @@ class Main extends egret.DisplayObjectContainer {
     private startPage: StartPage;
     private gamePage: GamePage;
     private overPage: OverPage;
+    private completPage: CompletePage;
     
     private createGameScene():void {
         
+        this.txtGate = new egret.TextField();
+        this.txtGate.type = egret.TextFieldType.INPUT;
+        //this.txtGate.border = true;
+        //this.txtGate.borderColor = 0xfff000;
+        this.txtGate.x = Global.WIDTH - 150;
+        this.txtGate.y = 100;
+        this.txtGate.size = 14;
+        this.txtGate.width = 100;
+        this.txtGate.height = 30;
+        this.txtGate.text = "第1关";
+        this.addChild(this.txtGate);
+        
         this.startPage = new StartPage();
         this.addChild(this.startPage);
+        this.setChildIndex(this.txtGate,this.numChildren - 1);
         this.startPage.addEventListener("enterGame", this.enterGame, this);
     }
 
     private enterGame(evt: egret.Event): void
     {
-        this.startPage.visible = false;
+        //this.startPage.visible = false;
         this.gamePage = new GamePage();
         this.gamePage.addEventListener(ResultEvent.RESULT, this.onFail, this);
         this.addChild(this.gamePage);
+        this.startPage.setBg("3_1_0");
+        this.setChildIndex(this.txtGate,this.numChildren - 1);
     }
     
     private onFail(evt: ResultEvent)
@@ -133,6 +150,7 @@ class Main extends egret.DisplayObjectContainer {
         this.gamePage.dispose();
         this.removeChild(this.gamePage);
         this.addChild(this.overPage);
+        //this.setChildIndex(this.txtGate,this.numChildren - 1);
         this.overPage.addEventListener("again", this.onAgain, this);
     }
     
@@ -140,19 +158,21 @@ class Main extends egret.DisplayObjectContainer {
     {
         this.overPage.removeEventListener("again", this.onAgain, this);
         this.removeChild(this.overPage);
+        this.txtGate.text = "第1关";
         this.gamePage = new GamePage();
         this.gamePage.addEventListener(ResultEvent.RESULT, this.onFail, this);
         this.addChild(this.gamePage);
+        this.startPage.setBg("3_1_0");
+        this.setChildIndex(this.txtGate,this.numChildren - 1);
     }
-    /**
-     * 根据name关键字创建一个Bitmap对象。name属性请参考resources/resource.json配置文件的内容。
-     * Create a Bitmap object according to name keyword.As for the property of name please refer to the configuration file of resources/resource.json.
-     */
-    private createBitmapByName(name:string):egret.Bitmap {
-        var result:egret.Bitmap = new egret.Bitmap();
-        var texture:egret.Texture = RES.getRes(name);
-        result.texture = texture;
-        return result;
+    
+    public addCompletePage(): void
+    {
+        if(!this.completPage)
+        {
+            this.completPage = new CompletePage();
+            this.addChild(this.completPage);
+        }
     }
 
 }

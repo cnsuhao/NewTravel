@@ -14,13 +14,33 @@
 			"children":[
 			{
 				"isFolder":false,
-				"key":"bgImage",
-				"name":"bgImage"
+				"key":"3_1",
+				"name":"3_1"
 			},
 			{
 				"isFolder":false,
-				"key":"egretIcon",
-				"name":"egretIcon"
+				"key":"3_1_0",
+				"name":"3_1_0"
+			},
+			{
+				"isFolder":false,
+				"key":"3_5",
+				"name":"3_5"
+			},
+			{
+				"isFolder":false,
+				"key":"b_1",
+				"name":"b_1"
+			},
+			{
+				"isFolder":false,
+				"key":"b_2",
+				"name":"b_2"
+			},
+			{
+				"isFolder":false,
+				"key":"b_3",
+				"name":"b_3"
 			}]
 		}
 	},

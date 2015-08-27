@@ -1,10 +1,190 @@
 {
 	"groups":[
 	{
-		"keys":"3_1,3_1_0,3_5,b_3,b_1,b_2,person_json,person_png",
+		"keys":"n_7,n_8,n_9,n_10,n_11,n_12,n_13,n_14,n_15,n_16,n_17,n_18,n_19,n_20,person_json,person_png,s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10,s_11,s_12,s_13,s_14,s_15,s_16,s_17,s_18,s_19,s_20,3_1,3_1_0,3_5,b_1,b_2,b_3,n_1,n_2,n_3,n_4,n_5,n_6",
 		"name":"preload"
 	}],
 	"resources":[
+	{
+		"name":"n_7",
+		"type":"image",
+		"url":"assets/n_7.png"
+	},
+	{
+		"name":"n_8",
+		"type":"image",
+		"url":"assets/n_8.png"
+	},
+	{
+		"name":"n_9",
+		"type":"image",
+		"url":"assets/n_9.png"
+	},
+	{
+		"name":"n_10",
+		"type":"image",
+		"url":"assets/n_10.png"
+	},
+	{
+		"name":"n_11",
+		"type":"image",
+		"url":"assets/n_11.png"
+	},
+	{
+		"name":"n_12",
+		"type":"image",
+		"url":"assets/n_12.png"
+	},
+	{
+		"name":"n_13",
+		"type":"image",
+		"url":"assets/n_13.png"
+	},
+	{
+		"name":"n_14",
+		"type":"image",
+		"url":"assets/n_14.png"
+	},
+	{
+		"name":"n_15",
+		"type":"image",
+		"url":"assets/n_15.png"
+	},
+	{
+		"name":"n_16",
+		"type":"image",
+		"url":"assets/n_16.png"
+	},
+	{
+		"name":"n_17",
+		"type":"image",
+		"url":"assets/n_17.png"
+	},
+	{
+		"name":"n_18",
+		"type":"image",
+		"url":"assets/n_18.png"
+	},
+	{
+		"name":"n_19",
+		"type":"image",
+		"url":"assets/n_19.png"
+	},
+	{
+		"name":"n_20",
+		"type":"image",
+		"url":"assets/n_20.png"
+	},
+	{
+		"name":"person_json",
+		"type":"json",
+		"url":"assets/person.json"
+	},
+	{
+		"name":"person_png",
+		"type":"image",
+		"url":"assets/person.png"
+	},
+	{
+		"name":"s_1",
+		"type":"image",
+		"url":"assets/s_1.png"
+	},
+	{
+		"name":"s_2",
+		"type":"image",
+		"url":"assets/s_2.png"
+	},
+	{
+		"name":"s_3",
+		"type":"image",
+		"url":"assets/s_3.png"
+	},
+	{
+		"name":"s_4",
+		"type":"image",
+		"url":"assets/s_4.png"
+	},
+	{
+		"name":"s_5",
+		"type":"image",
+		"url":"assets/s_5.png"
+	},
+	{
+		"name":"s_6",
+		"type":"image",
+		"url":"assets/s_6.png"
+	},
+	{
+		"name":"s_7",
+		"type":"image",
+		"url":"assets/s_7.png"
+	},
+	{
+		"name":"s_8",
+		"type":"image",
+		"url":"assets/s_8.png"
+	},
+	{
+		"name":"s_9",
+		"type":"image",
+		"url":"assets/s_9.png"
+	},
+	{
+		"name":"s_10",
+		"type":"image",
+		"url":"assets/s_10.png"
+	},
+	{
+		"name":"s_11",
+		"type":"image",
+		"url":"assets/s_11.png"
+	},
+	{
+		"name":"s_12",
+		"type":"image",
+		"url":"assets/s_12.png"
+	},
+	{
+		"name":"s_13",
+		"type":"image",
+		"url":"assets/s_13.png"
+	},
+	{
+		"name":"s_14",
+		"type":"image",
+		"url":"assets/s_14.png"
+	},
+	{
+		"name":"s_15",
+		"type":"image",
+		"url":"assets/s_15.png"
+	},
+	{
+		"name":"s_16",
+		"type":"image",
+		"url":"assets/s_16.png"
+	},
+	{
+		"name":"s_17",
+		"type":"image",
+		"url":"assets/s_17.png"
+	},
+	{
+		"name":"s_18",
+		"type":"image",
+		"url":"assets/s_18.png"
+	},
+	{
+		"name":"s_19",
+		"type":"image",
+		"url":"assets/s_19.png"
+	},
+	{
+		"name":"s_20",
+		"type":"image",
+		"url":"assets/s_20.png"
+	},
 	{
 		"name":"3_1",
 		"type":"image",
@@ -21,11 +201,6 @@
 		"url":"assets/3_5.png"
 	},
 	{
-		"name":"b_3",
-		"type":"image",
-		"url":"assets/b_3.png"
-	},
-	{
 		"name":"b_1",
 		"type":"image",
 		"url":"assets/b_1.png"
@@ -36,13 +211,38 @@
 		"url":"assets/b_2.png"
 	},
 	{
-		"name":"person_json",
-		"type":"json",
-		"url":"assets/person.json"
+		"name":"b_3",
+		"type":"image",
+		"url":"assets/b_3.png"
 	},
 	{
-		"name":"person_png",
+		"name":"n_1",
 		"type":"image",
-		"url":"assets/person.png"
+		"url":"assets/n_1.png"
+	},
+	{
+		"name":"n_2",
+		"type":"image",
+		"url":"assets/n_2.png"
+	},
+	{
+		"name":"n_3",
+		"type":"image",
+		"url":"assets/n_3.png"
+	},
+	{
+		"name":"n_4",
+		"type":"image",
+		"url":"assets/n_4.png"
+	},
+	{
+		"name":"n_5",
+		"type":"image",
+		"url":"assets/n_5.png"
+	},
+	{
+		"name":"n_6",
+		"type":"image",
+		"url":"assets/n_6.png"
 	}]
 }

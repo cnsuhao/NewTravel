@@ -8,6 +8,8 @@ class Box extends egret.Sprite{
     private txt: egret.TextField;
     private bmp: egret.Bitmap;
     
+    private bmpTxt: egret.Bitmap;
+    
 	public constructor() {
         super();
         
@@ -24,6 +26,10 @@ class Box extends egret.Sprite{
         this.bmp = new egret.Bitmap();
         //this.bmp.texture = RES.getRes("3_5");
         this.addChild(this.bmp);
+        
+        this.bmpTxt = new egret.Bitmap();
+        //this.bmp.texture = RES.getRes("3_5");
+        this.addChild(this.bmpTxt);
 	}
 	
     public set add(value: string)
@@ -47,5 +53,12 @@ class Box extends egret.Sprite{
         this.bmp.texture = RES.getRes(resName);
         this.bmp.scaleX = this.width / this.bmp.texture.textureWidth;
         this.bmp.scaleY = this.height / this.bmp.texture.textureHeight;
+    }
+    
+    public setBmpTxt(resName: string): void
+    {
+        this.bmpTxt.texture = RES.getRes(resName);
+        this.bmpTxt.x = (this.width - this.bmpTxt.width) * 0.5;
+        this.bmpTxt.y = (this.height - this.bmpTxt.height) * 0.5;
     }
 }

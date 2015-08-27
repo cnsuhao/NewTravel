@@ -36,15 +36,27 @@ class GamePage extends egret.Sprite{
         this.addChild(bmp);*/
         
         //游戏格子配置信息，add:字符，可能会换成图片，distance:格子左上角距离舞台左边界的距离，width，格子的宽度
-        this.boxesInfo = [  {add:"A", distance:10, width:80,res:"b_1"}, 
-                            {add:"B", distance:150, width:60,res:"b_2"},
-                            {add:"C", distance:300, width:50,res:"b_2"},
-                            {add:"D", distance:290 + 150, width:90,res:"b_1"},
-                            {add:"E", distance:380 + 200, width:80,res:"b_3"},
-                            {add:"F", distance:480 + 250, width:40,res:"b_3"},
-                            {add:"G", distance:570 + 300, width:90,res:"b_3"},
-                            {add:"H", distance:670 + 350, width:20,res:"b_1"},
-                            {add:"I", distance:780 + 400, width:80,res:"b_2"}];
+        this.boxesInfo = [{ add: "1",distance: 10, width: 80,res: "s_1", txt:"n_1"},
+                            { add: "2",distance: 150, width: 60,res: "s_2", txt:"n_2" },
+                            { add: "3",distance: 100, width: 70,res: "s_3", txt:"n_3" },
+                            { add: "4",distance: 120, width: 55,res: "s_4", txt:"n_4" },
+                            { add: "5",distance: 200, width: 90,res: "s_5", txt:"n_5" },
+                            { add: "6",distance: 220, width: 60,res: "s_6" , txt:"n_6"},
+                            { add: "7",distance: 170, width: 50,res: "s_7", txt:"n_7" },
+                            { add: "8",distance: 170, width: 75,res: "s_8", txt:"n_8" },
+                            { add: "9",distance: 150, width: 45,res: "s_9", txt:"n_9" },
+                            { add: "10",distance: 130, width: 60,res: "s_10", txt:"n_10" },
+                            
+                            { add: "11",distance: 150, width: 85,res: "s_11", txt:"n_11" },
+                            { add: "12",distance: 100, width: 40,res: "s_12", txt:"n_12" },
+                            { add: "13",distance: 200, width: 55,res: "s_13", txt:"n_13" },
+                            { add: "14",distance: 180, width: 65,res: "s_14", txt:"n_14" },
+                            { add: "15",distance: 180, width: 35,res: "s_15", txt:"n_15" },
+                            { add: "16",distance: 170, width: 50,res: "s_16", txt:"n_16" },
+                            { add: "17",distance: 270, width: 20,res: "s_17", txt:"n_17" },
+                            { add: "18",distance: 180, width: 60,res: "s_18", txt:"n_18" },
+                            { add: "19",distance: 100, width: 20,res: "s_19", txt:"n_19" },
+                            { add: "20",distance: 150, width: 30,res: "s_20", txt:"n_20" }];
         
         this.createBoxes();
         this.currentBox = this.boxes[this.cursor];
@@ -68,11 +80,15 @@ class GamePage extends egret.Sprite{
         for(var i: number = 0;i < this.boxesInfo.length - 1;i++)
         {
             var box: Box = new Box();
-            box.add = this.boxesInfo[i].add;
+            //box.add = this.boxesInfo[i].add;
             box.boxWidth = this.boxesInfo[i].width;
-            box.x = this.boxesInfo[i].distance;
+            if(i == 0)
+                box.x = this.boxesInfo[i].distance;
+            else
+                box.x = this.boxes[i - 1].x + this.boxes[i - 1].width + this.boxesInfo[i].distance;
             box.y = Global.HEIGHT - box.height;
-            //box.setBg(this.boxesInfo[i].res);
+            box.setBg(this.boxesInfo[i].res);
+            box.setBmpTxt(this.boxesInfo[i].txt);
             this.addChild(box);
             this.boxes.push(box);
         }

@@ -18,8 +18,8 @@ class GamePage extends egret.Sprite{
     private lineLength: number = 0;
     
     private FALL_SPEED:number = 15;//人物掉落速度
-    private MOVE_SPEED: number = 2;//人物移动速度
-    private LINE_GROW_SPEED: number = 3;//线的增长速度
+    private MOVE_SPEED: number = 4;//人物移动速度
+    private LINE_GROW_SPEED: number = 6;//线的增长速度
     
     private status: number = 0; //0:背景滑动状态；1.开始按下;2:增长,抬起;3:棍子下滑；4:人物移动;0
     
@@ -160,7 +160,7 @@ class GamePage extends egret.Sprite{
         if (main)
             main.txtGate.text = "第" + (cursor+1) + "关";
         
-        this.persion.x = this.currentBox.x + this.currentBox.width - 10;
+        this.persion.x = this.currentBox.x + this.currentBox.width - 15;
         this.persion.y = this.currentBox.y;
         this.currentLine = new Line();
         this.currentLine.x = this.currentBox.x + this.currentBox.width;
@@ -196,7 +196,7 @@ class GamePage extends egret.Sprite{
         else
         {
             this.resultTag = 2;//成功
-            this.resultPos = this.nextBox.x + this.nextBox.width - 10;
+            this.resultPos = this.nextBox.x + this.nextBox.width - 15;
         }
         //console.log("xxxxxxxxxxxxxxxxxx:" + this.resultTag + ":::" + this.resultPos);
     }

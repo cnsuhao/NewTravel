@@ -21,6 +21,8 @@ class GamePage extends egret.Sprite{
     private MOVE_SPEED: number = 2;//人物移动速度
     private LINE_GROW_SPEED: number = 3;//线的增长速度
     
+    private status: number = 0; //0:背景滑动状态；1.开始按下;2:增长,抬起;3:棍子下滑；4:人物移动;0
+    
     public constructor() {
         super();
         var g: egret.Graphics = this.graphics;
@@ -76,28 +78,27 @@ class GamePage extends egret.Sprite{
         }
     }
 	
-    private status: number = 0;
-    
     private onTouchBegin(evt: egret.TouchEvent): void
     {
-        if(this.status != 0) return;
-        this.status = 1;
+        if(this.status == 1) 
+        {
+            this.status = 2;
+        }
     }
     
     private onTouchEnd(evt: egret.TouchEvent): void
     {
-        /*this.status = 2; 
-        this.currentLine.rotation = 0;
-        this.lineLength = 1;
-        this.result();*/
-        this.status = -1;
-        var self: GamePage = this;
-        egret.Tween.get(self.currentLine, { loop: false }).to({ "rotation": 0 },300).call(self.onComplete, self);
+        if(this.status == 2) 
+        {
+            this.status = 3;
+            var self: GamePage = this;
+            egret.Tween.get(self.currentLine,{ loop: false }).to({ "rotation": 0 },300).call(self.onComplete,self);
+        }
     }
     
     private onComplete(): void
     {
-        this.status = 2; 
+        this.status = 4; 
         this.lineLength = 1;
         this.result();
         this.persion.walk();
@@ -105,10 +106,10 @@ class GamePage extends egret.Sprite{
     
     private onEnterFrame(event: egret.Event): void
     {
-        if(this.status == 1) {
+        if(this.status == 2) {
             this.currentLine.updateShape(this.lineLength += this.LINE_GROW_SPEED);
         }
-        else if(this.status == 2) {
+        else if(this.status == 4) {
             this.persion.x += this.MOVE_SPEED;
             if(this.persion.x >= this.resultPos) {
                 //console.log("fffffffffffffffff:" + this.cursor);
@@ -118,12 +119,12 @@ class GamePage extends egret.Sprite{
                     this.over("GameComplete");
             }
         }
-        else if(this.status == 3)
+        else if(this.status == 5)
         {
             this.persion.y += this.FALL_SPEED;
             if(this.persion.y > 800)
             {
-                this.status = 4;
+                //this.status = 0;
                 var evt: ResultEvent = new ResultEvent(ResultEvent.RESULT, this.cursor + 1);
                 this.dispatchEvent(evt);
             }
@@ -156,10 +157,12 @@ class GamePage extends egret.Sprite{
         
         var self: GamePage = this;
         var tw = egret.Tween.get(self);
-        tw.to({"x": -self.currentBox.x}, 300);
-        //tw.wait(2000);
-        //tw.to({"alpha": 0}, 200);
-        //tw.call(change, self);
+        tw.to({"x": -self.currentBox.x}, 300).call(self.onComplete2, self);
+    }
+    
+    private onComplete2(): void 
+    {
+        this.status = 1;
     }
     
     private resultTag: number = 0;
@@ -187,17 +190,18 @@ class GamePage extends egret.Sprite{
         this.persion.stand();
         if(type == "RoundComplete") {
             if(this.resultTag == 1) {
-                this.status = 3;
+                this.status = 5;
             }
             else {
                 this.cursor++;
-                this.init(this.cursor);
                 this.status = 0;
+                this.init(this.cursor);
             }
         }
         else
         {
             //游戏全部通关的处理
+            this.status = 0;
             var main: Main = <Main>this.parent;
             if(main)
                 main.addCompletePage();

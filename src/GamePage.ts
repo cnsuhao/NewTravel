@@ -17,9 +17,9 @@ class GamePage extends egret.Sprite{
     
     private lineLength: number = 0;
     
-    private FALL_SPEED:number = 15;//人物掉落速度
-    private MOVE_SPEED: number = 4;//人物移动速度
-    private LINE_GROW_SPEED: number = 6;//线的增长速度
+    private FALL_SPEED:number = 20;//人物掉落速度
+    private MOVE_SPEED: number = 6;//人物移动速度
+    private LINE_GROW_SPEED: number = 9;//线的增长速度
     
     private status: number = 0; //0:背景滑动状态；1.开始按下;2:增长,抬起;3:棍子下滑；4:人物移动;0
     

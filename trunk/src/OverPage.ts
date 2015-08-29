@@ -18,60 +18,66 @@ class OverPage extends egret.Sprite{
         g.endFill();
         
         this.bmp = new egret.Bitmap();
-        this.bmp.texture = RES.getRes("3_5");
+        this.bmp.texture = RES.getRes("common_bg_png");
         this.addChild(this.bmp);
         
-        /*var overTxt: egret.TextField = new egret.TextField();
-        overTxt.text = "游戏结束";
-        overTxt.size = 25;
-        overTxt.textAlign = egret.HorizontalAlign.CENTER;
-        overTxt.x = (Global.WIDTH - overTxt.width) * 0.5;
-        overTxt.y = Global.HEIGHT * 0.3;
-        this.addChild(overTxt);*/
+        var tipLose: egret.Bitmap = new egret.Bitmap();
+        tipLose.texture = RES.getRes("tip_lose_png");
+        tipLose.x = 100;
+        tipLose.y = 240;
+        this.addChild(tipLose);
+        
+        var tipSuccessTo: egret.Bitmap = new egret.Bitmap();
+        tipSuccessTo.texture = RES.getRes("tip_success_to_png");
+        tipSuccessTo.x = 135;
+        tipSuccessTo.y = 370;
+        this.addChild(tipSuccessTo);
         
         this.scoreTxt = new egret.TextField();
-        this.scoreTxt.width = 100;
+        this.scoreTxt.width = 150;
         this.scoreTxt.height = 40;
-        this.scoreTxt.size = 25;
+        this.scoreTxt.size = 30;
         this.scoreTxt.x = 285;
-        this.scoreTxt.y = 375;
+        this.scoreTxt.y = 370;
         this.addChild(this.scoreTxt);
         
-        var againTxt:egret.TextField = new egret.TextField();
-        againTxt.touchEnabled = true;
-        //againTxt.text = "again";
-        againTxt.border = true;
-        againTxt.width = 140;
-        againTxt.height = 50;
-        againTxt.x = 75;
-        againTxt.y = 540;
-        this.addChild(againTxt);
-        againTxt.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onAgain,this);
+        var btnRestart: egret.Bitmap = new egret.Bitmap();
+        btnRestart.texture = RES.getRes("btn_restart_png");
+        btnRestart.x = 75;
+        btnRestart.y = 540;
+        this.addChild(btnRestart);
+        btnRestart.touchEnabled = true;
+        btnRestart.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onAgain,this);
         
-        var shareTxt:egret.TextField = new egret.TextField();
-        shareTxt.touchEnabled = true;
-        //shareTxt.text = "share";
-        shareTxt.border = true;
-        shareTxt.width = 140;
-        shareTxt.height = 50;
-        shareTxt.x = 270;
-        shareTxt.y = 540;
-        this.addChild(shareTxt);
+        var btnFriendShare: egret.Bitmap = new egret.Bitmap();
+        btnFriendShare.texture = RES.getRes("btn_friend_share_png");
+        btnFriendShare.x = 270;
+        btnFriendShare.y = 540;
+        this.addChild(btnFriendShare);
+        btnFriendShare.touchEnabled = true;
+        btnFriendShare.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onShare,this);
 	}
 	
-    public setScore(tollgate: number): void
+    public setDest(dest: string): void
     {
-        this.scoreTxt.text = "" + tollgate;
+        this.scoreTxt.text = "" + dest;
     }
 	
-    private onAgain(evt: egret.Event): void
+    private onAgain(evt: egret.TouchEvent): void
     {
-        var againTxt: egret.TextField = evt.currentTarget;
-        againTxt.removeEventListener(egret.TouchEvent.TOUCH_TAP,this.onAgain,this);
-        var e: egret.Event = new egret.Event("again");
-        this.dispatchEvent(e);
+        this.visible = false;
+        var main: Main = <Main>this.parent;
+        main.gamePage.visible = true;
+        main.gamePage.reset();
+        main.gamePage.init(0);
     }
 	
+    private onShare(event: egret.TouchEvent): void
+    {
+        var main: Main = <Main>this.parent;
+        main.sharePage.visible = true;
+    }
+    
     public dispose(): void
     {
         

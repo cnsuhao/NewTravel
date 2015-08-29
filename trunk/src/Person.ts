@@ -19,7 +19,7 @@ class Person extends egret.Sprite{
         
         var mcDataFactory:egret.MovieClipDataFactory = 
             new egret.MovieClipDataFactory(RES.getRes("person_json"), RES.getRes("person_png"));
-        this.mc = new egret.MovieClip(mcDataFactory.generateMovieClipData("person"));
+        this.mc = new egret.MovieClip(mcDataFactory.generateMovieClipData("person_use"));
         this.addChild(this.mc);
 	}
 	

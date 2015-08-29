@@ -13,15 +13,14 @@ class GamePage extends egret.Sprite{
     private currentBox: Box;
     private nextBox: Box;
     private currentLine: Line;
-    private cursor: number = 0;
-    
-    private lineLength: number = 0;
-    
+   
     private FALL_SPEED:number = 20;//人物掉落速度
     private MOVE_SPEED: number = 6;//人物移动速度
     private LINE_GROW_SPEED: number = 9;//线的增长速度
     
     private status: number = 0; //0:背景滑动状态；1.开始按下;2:增长,抬起;3:棍子下滑；4:人物移动;0
+    private cursor: number = 0;
+    private lineLength: number = 0;
     
     public constructor() {
         super();
@@ -36,27 +35,27 @@ class GamePage extends egret.Sprite{
         this.addChild(bmp);*/
         
         //游戏格子配置信息，add:字符，可能会换成图片，distance:格子左上角距离舞台左边界的距离，width，格子的宽度
-        this.boxesInfo = [{ add: "1",distance: 10, width: 80,res: "s_1", txt:"n_1"},
-                            { add: "2",distance: 150, width: 60,res: "s_2", txt:"n_2" },
-                            { add: "3",distance: 100, width: 70,res: "s_3", txt:"n_3" },
-                            { add: "4",distance: 120, width: 55,res: "s_4", txt:"n_4" },
-                            { add: "5",distance: 200, width: 90,res: "s_5", txt:"n_5" },
-                            { add: "6",distance: 220, width: 60,res: "s_6" , txt:"n_6"},
-                            { add: "7",distance: 170, width: 50,res: "s_7", txt:"n_7" },
-                            { add: "8",distance: 170, width: 75,res: "s_8", txt:"n_8" },
-                            { add: "9",distance: 150, width: 45,res: "s_9", txt:"n_9" },
-                            { add: "10",distance: 130, width: 60,res: "s_10", txt:"n_10" },
+        this.boxesInfo = [  { add: "上海",distance: 10, width: 80,res: "s_1", txt:"n_1", bg:"d1"},
+                            { add: "东京",distance: 150, width: 60,res: "s_2", txt:"n_2", bg:"d2" },
+                            { add: "首尔",distance: 100, width: 70,res: "s_3", txt:"n_3" , bg:"d3"},
+                            { add: "巴黎",distance: 120, width: 55,res: "s_4", txt:"n_4" , bg:"d4"},
+                            { add: "威尼斯",distance: 200, width: 90,res: "s_5", txt:"n_5", bg:"d5" },
+                            { add: "斐济",distance: 220, width: 60,res: "s_6" , txt:"n_6", bg:"d6"},
+                            { add: "新加坡",distance: 170, width: 50,res: "s_7", txt:"n_7", bg:"d7" },
+                            { add: "巴厘岛",distance: 170, width: 75,res: "s_8", txt:"n_8" , bg:"d8"},
+                            { add: "迪拜",distance: 150, width: 45,res: "s_9", txt:"n_9" , bg:"d9"},
+                            { add: "加勒比",distance: 130, width: 60,res: "s_10", txt:"n_10" , bg:"d10"},
                             
-                            { add: "11",distance: 150, width: 85,res: "s_11", txt:"n_11" },
-                            { add: "12",distance: 100, width: 40,res: "s_12", txt:"n_12" },
-                            { add: "13",distance: 200, width: 55,res: "s_13", txt:"n_13" },
-                            { add: "14",distance: 180, width: 65,res: "s_14", txt:"n_14" },
-                            { add: "15",distance: 180, width: 35,res: "s_15", txt:"n_15" },
-                            { add: "16",distance: 170, width: 50,res: "s_16", txt:"n_16" },
-                            { add: "17",distance: 270, width: 20,res: "s_17", txt:"n_17" },
-                            { add: "18",distance: 180, width: 60,res: "s_18", txt:"n_18" },
-                            { add: "19",distance: 100, width: 20,res: "s_19", txt:"n_19" },
-                            { add: "20",distance: 150, width: 30,res: "s_20", txt:"n_20" }];
+                            { add: "希腊",distance: 150, width: 85,res: "s_11", txt:"n_11" , bg:"d11"},
+                            { add: "夏威夷",distance: 100, width: 40,res: "s_12", txt:"n_12" , bg:"d12"},
+                            { add: "慕尼黑",distance: 200, width: 55,res: "s_13", txt:"n_13" , bg:"d13"},
+                            { add: "莫斯科",distance: 180, width: 65,res: "s_14", txt:"n_14" , bg:"d14"},
+                            { add: "维也纳",distance: 180, width: 35,res: "s_15", txt:"n_15" , bg:"d15"},
+                            { add: "新德里",distance: 170, width: 50,res: "s_16", txt:"n_16" , bg:"d16"},
+                            { add: "曼谷",distance: 270, width: 20,res: "s_17", txt:"n_17" , bg:"d17"},
+                            { add: "马尼拉",distance: 180, width: 60,res: "s_18", txt:"n_18" , bg:"d18"},
+                            { add: "悉尼",distance: 100, width: 20,res: "s_19", txt:"n_19" , bg:"d19"},
+                            { add: "北京",distance: 150, width: 30,res: "s_20", txt:"n_20" , bg:"d20"}];
         
         this.createBoxes();
         this.currentBox = this.boxes[this.cursor];
@@ -71,9 +70,13 @@ class GamePage extends egret.Sprite{
         this.addEventListener(egret.Event.ENTER_FRAME,this.onEnterFrame,this);
         
         this.touchEnabled = true;
-        
-        this.init(this.cursor);
+        this.addEventListener(egret.Event.ADDED_TO_STAGE,this.onAddedToStage,this);
 	}
+	
+    private onAddedToStage(event: egret.Event): void
+    {
+        //this.init(this.cursor);
+    }
 	
     private createBoxes(): void
     {
@@ -91,6 +94,23 @@ class GamePage extends egret.Sprite{
             box.setBmpTxt(this.boxesInfo[i].txt);
             this.addChild(box);
             this.boxes.push(box);
+        }
+    }
+    
+    public reset(): void
+    {
+        this.lineLength = 0;
+        this.cursor = 0;
+        this.status = 0;
+        this.resultTag = 0;
+        this.resultPos = 0;
+        for(var i: number = this.numChildren - 1;i >= 0;i--)
+        {
+            var c: egret.DisplayObject = this.getChildAt(i);
+            if(c instanceof Line)
+            {
+                this.removeChild(c);
+            }
         }
     }
 	
@@ -141,13 +161,15 @@ class GamePage extends egret.Sprite{
             if(this.persion.y > 800)
             {
                 //this.status = 0;
-                var evt: ResultEvent = new ResultEvent(ResultEvent.RESULT, this.cursor + 1);
-                this.dispatchEvent(evt);
+                this.visible = false;
+                var main: Main = <Main>this.parent;
+                main.overPage.visible = true;
+                main.overPage.setDest(this.boxesInfo[this.cursor].add);
             }
         }
     }
     
-    private init(cursor: number): void
+    public init(cursor: number): void
     {
         if(cursor >= this.boxesInfo.length - 1)
         {
@@ -157,8 +179,10 @@ class GamePage extends egret.Sprite{
         this.currentBox = this.boxes[cursor];
         this.nextBox = this.boxes[cursor+1];
         var main: Main = <Main>this.parent;
-        if (main)
-            main.txtGate.text = "第" + (cursor+1) + "关";
+        if(main) {
+            main.txtGate.text = "第" + (cursor + 1) + "关";
+            main.startPage.setBg(this.boxesInfo[cursor].bg + "_png");
+        }
         
         this.persion.x = this.currentBox.x + this.currentBox.width - 15;
         this.persion.y = this.currentBox.y;
@@ -220,7 +244,10 @@ class GamePage extends egret.Sprite{
             this.status = 0;
             var main: Main = <Main>this.parent;
             if(main)
-                main.addCompletePage();
+            {
+                this.visible = false;
+                main.completPage.visible = true;
+            }
         }
     }
     

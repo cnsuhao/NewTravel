@@ -1,7 +1,7 @@
 {
 	"groups":[
 	{
-		"keys":"n_7,n_8,n_9,n_10,n_11,n_12,n_13,n_14,n_15,n_16,n_17,n_18,n_19,n_20,person_json,person_png,s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10,s_11,s_12,s_13,s_14,s_15,s_16,s_17,s_18,s_19,s_20,3_1,3_1_0,3_5,b_1,b_2,b_3,n_1,n_2,n_3,n_4,n_5,n_6",
+		"keys":"n_7,n_8,n_9,n_10,n_11,n_12,n_13,n_14,n_15,n_16,n_17,n_18,n_19,n_20,person_json,person_png,s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10,s_11,s_12,s_13,s_14,s_15,s_16,s_17,s_18,s_19,s_20,3_1,3_5,b_1,b_2,b_3,n_1,n_2,n_3,n_4,n_5,n_6,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,d13_png,d14_png,d15_png,d16_png,d17_png,d18_png,d19_png,d20_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,share_tips_png,tip_success_to_png,tip_with_friend_png,btn_friend_share_png,btn_invite_png,btn_restart_png,btn_retrip_png,btn_share_png,btn_start_png,common_bg_png,tip_lose_png,tip_one_step_png,tip_round_complete_png,tip_guide_png",
 		"name":"preload"
 	}],
 	"resources":[
@@ -191,11 +191,6 @@
 		"url":"assets/3_1.png"
 	},
 	{
-		"name":"3_1_0",
-		"type":"image",
-		"url":"assets/3_1_0.png"
-	},
-	{
 		"name":"3_5",
 		"type":"image",
 		"url":"assets/3_5.png"
@@ -244,5 +239,175 @@
 		"name":"n_6",
 		"type":"image",
 		"url":"assets/n_6.png"
+	},
+	{
+		"name":"d7_png",
+		"type":"image",
+		"url":"assets/big_bg/d7.png"
+	},
+	{
+		"name":"d8_png",
+		"type":"image",
+		"url":"assets/big_bg/d8.png"
+	},
+	{
+		"name":"d9_png",
+		"type":"image",
+		"url":"assets/big_bg/d9.png"
+	},
+	{
+		"name":"d10_png",
+		"type":"image",
+		"url":"assets/big_bg/d10.png"
+	},
+	{
+		"name":"d11_png",
+		"type":"image",
+		"url":"assets/big_bg/d11.png"
+	},
+	{
+		"name":"d12_png",
+		"type":"image",
+		"url":"assets/big_bg/d12.png"
+	},
+	{
+		"name":"d13_png",
+		"type":"image",
+		"url":"assets/big_bg/d13.png"
+	},
+	{
+		"name":"d14_png",
+		"type":"image",
+		"url":"assets/big_bg/d14.png"
+	},
+	{
+		"name":"d15_png",
+		"type":"image",
+		"url":"assets/big_bg/d15.png"
+	},
+	{
+		"name":"d16_png",
+		"type":"image",
+		"url":"assets/big_bg/d16.png"
+	},
+	{
+		"name":"d17_png",
+		"type":"image",
+		"url":"assets/big_bg/d17.png"
+	},
+	{
+		"name":"d18_png",
+		"type":"image",
+		"url":"assets/big_bg/d18.png"
+	},
+	{
+		"name":"d19_png",
+		"type":"image",
+		"url":"assets/big_bg/d19.png"
+	},
+	{
+		"name":"d20_png",
+		"type":"image",
+		"url":"assets/big_bg/d20.png"
+	},
+	{
+		"name":"d1_png",
+		"type":"image",
+		"url":"assets/big_bg/d1.png"
+	},
+	{
+		"name":"d2_png",
+		"type":"image",
+		"url":"assets/big_bg/d2.png"
+	},
+	{
+		"name":"d3_png",
+		"type":"image",
+		"url":"assets/big_bg/d3.png"
+	},
+	{
+		"name":"d4_png",
+		"type":"image",
+		"url":"assets/big_bg/d4.png"
+	},
+	{
+		"name":"d5_png",
+		"type":"image",
+		"url":"assets/big_bg/d5.png"
+	},
+	{
+		"name":"d6_png",
+		"type":"image",
+		"url":"assets/big_bg/d6.png"
+	},
+	{
+		"name":"share_tips_png",
+		"type":"image",
+		"url":"assets/share_tips.png"
+	},
+	{
+		"name":"tip_success_to_png",
+		"type":"image",
+		"url":"assets/as/tip_success_to.png"
+	},
+	{
+		"name":"tip_with_friend_png",
+		"type":"image",
+		"url":"assets/as/tip_with_friend.png"
+	},
+	{
+		"name":"btn_friend_share_png",
+		"type":"image",
+		"url":"assets/as/btn_friend_share.png"
+	},
+	{
+		"name":"btn_invite_png",
+		"type":"image",
+		"url":"assets/as/btn_invite.png"
+	},
+	{
+		"name":"btn_restart_png",
+		"type":"image",
+		"url":"assets/as/btn_restart.png"
+	},
+	{
+		"name":"btn_retrip_png",
+		"type":"image",
+		"url":"assets/as/btn_retrip.png"
+	},
+	{
+		"name":"btn_share_png",
+		"type":"image",
+		"url":"assets/as/btn_share.png"
+	},
+	{
+		"name":"btn_start_png",
+		"type":"image",
+		"url":"assets/as/btn_start.png"
+	},
+	{
+		"name":"common_bg_png",
+		"type":"image",
+		"url":"assets/as/common_bg.png"
+	},
+	{
+		"name":"tip_lose_png",
+		"type":"image",
+		"url":"assets/as/tip_lose.png"
+	},
+	{
+		"name":"tip_one_step_png",
+		"type":"image",
+		"url":"assets/as/tip_one_step.png"
+	},
+	{
+		"name":"tip_round_complete_png",
+		"type":"image",
+		"url":"assets/as/tip_round_complete.png"
+	},
+	{
+		"name":"tip_guide_png",
+		"type":"image",
+		"url":"assets/as/tip_guide.png"
 	}]
 }

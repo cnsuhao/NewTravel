@@ -79,10 +79,11 @@ class Main extends egret.DisplayObjectContainer {
      * 创建游戏场景
      * Create a game scene
      */
-    private startPage: StartPage;
-    private gamePage: GamePage;
-    private overPage: OverPage;
-    private completPage: CompletePage;
+    public startPage: StartPage;
+    public gamePage: GamePage;
+    public overPage: OverPage;
+    public completPage: CompletePage;
+    public sharePage: SharePage;
     
     private createGameScene():void {
         
@@ -97,11 +98,27 @@ class Main extends egret.DisplayObjectContainer {
         this.txtGate.height = 30;
         this.txtGate.text = "第1关";
         this.addChild(this.txtGate);
+        this.txtGate.visible = false;
         
         this.startPage = new StartPage();
         this.addChild(this.startPage);
-        this.setChildIndex(this.txtGate,this.numChildren - 1);
-        this.startPage.addEventListener("enterGame", this.enterGame, this);
+        
+        this.gamePage = new GamePage();
+        this.addChild(this.gamePage);
+        
+        this.overPage = new OverPage();
+        this.addChild(this.overPage);
+        
+        this.completPage = new CompletePage();
+        this.addChild(this.completPage);
+        
+        this.sharePage = new SharePage();
+        this.addChild(this.sharePage);
+        
+        this.gamePage.visible = false;
+        this.overPage.visible = false;
+        this.completPage.visible = false;
+        this.sharePage.visible = false;
     }
 
     private enterGame(evt: egret.Event): void
@@ -110,15 +127,15 @@ class Main extends egret.DisplayObjectContainer {
         this.gamePage = new GamePage();
         this.gamePage.addEventListener(ResultEvent.RESULT, this.onFail, this);
         this.addChild(this.gamePage);
-        this.startPage.setBg("3_1_0");
         this.setChildIndex(this.txtGate,this.numChildren - 1);
+        this.txtGate.visible = true;
     }
     
     private onFail(evt: ResultEvent)
     {
         this.gamePage.removeEventListener(ResultEvent.RESULT, this.onFail, this);
         this.overPage = new OverPage();
-        this.overPage.setScore(evt.score);
+        this.overPage.setDest(evt.dest);
         this.gamePage.dispose();
         this.removeChild(this.gamePage);
         this.addChild(this.overPage);
@@ -134,8 +151,8 @@ class Main extends egret.DisplayObjectContainer {
         this.gamePage = new GamePage();
         this.gamePage.addEventListener(ResultEvent.RESULT, this.onFail, this);
         this.addChild(this.gamePage);
-        this.startPage.setBg("3_1_0");
         this.setChildIndex(this.txtGate,this.numChildren - 1);
+        this.txtGate.visible = true;
     }
     
     public addCompletePage(): void

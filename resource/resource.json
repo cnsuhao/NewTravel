@@ -1,7 +1,7 @@
 {
 	"groups":[
 	{
-		"keys":"n_7,n_8,n_9,n_10,n_11,n_12,n_13,n_14,n_15,n_16,n_17,n_18,n_19,n_20,person_json,person_png,s_1,s_2,s_3,s_4,s_5,s_6,s_7,s_8,s_9,s_10,s_11,s_12,s_13,s_14,s_15,s_16,s_17,s_18,s_19,s_20,3_1,3_5,b_1,b_2,b_3,n_1,n_2,n_3,n_4,n_5,n_6,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,d13_png,d14_png,d15_png,d16_png,d17_png,d18_png,d19_png,d20_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,share_tips_png,tip_success_to_png,tip_with_friend_png,btn_friend_share_png,btn_invite_png,btn_restart_png,btn_retrip_png,btn_share_png,btn_start_png,common_bg_png,tip_lose_png,tip_one_step_png,tip_round_complete_png,tip_guide_png",
+		"keys":"over_bg_png,game_bg_png,n_7,n_8,n_9,n_10,n_11,n_12,n_13,n_14,n_15,n_16,n_17,n_18,n_19,n_20,person_json,person_png,n_1,n_2,n_3,n_4,n_5,n_6,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,d13_png,d14_png,d15_png,d16_png,d17_png,d18_png,d19_png,d20_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,share_tips_png,tip_success_to_png,tip_with_friend_png,btn_friend_share_png,btn_invite_png,btn_restart_png,btn_retrip_png,btn_share_png,btn_start_png,common_bg_png,tip_lose_png,tip_one_step_png,tip_round_complete_png,tip_guide_png",
 		"name":"preload"
 	}],
 	"resources":[
@@ -9,6 +9,16 @@
 		"name":"n_7",
 		"type":"image",
 		"url":"assets/n_7.png"
+	},
+	{
+		"name":"game_bg_png",
+		"type":"image",
+		"url":"assets/as/game_bg.png"
+	},
+	{
+		"name":"over_bg_png",
+		"type":"image",
+		"url":"assets/as/over_bg.png"
 	},
 	{
 		"name":"n_8",
@@ -84,131 +94,6 @@
 		"name":"person_png",
 		"type":"image",
 		"url":"assets/person.png"
-	},
-	{
-		"name":"s_1",
-		"type":"image",
-		"url":"assets/s_1.png"
-	},
-	{
-		"name":"s_2",
-		"type":"image",
-		"url":"assets/s_2.png"
-	},
-	{
-		"name":"s_3",
-		"type":"image",
-		"url":"assets/s_3.png"
-	},
-	{
-		"name":"s_4",
-		"type":"image",
-		"url":"assets/s_4.png"
-	},
-	{
-		"name":"s_5",
-		"type":"image",
-		"url":"assets/s_5.png"
-	},
-	{
-		"name":"s_6",
-		"type":"image",
-		"url":"assets/s_6.png"
-	},
-	{
-		"name":"s_7",
-		"type":"image",
-		"url":"assets/s_7.png"
-	},
-	{
-		"name":"s_8",
-		"type":"image",
-		"url":"assets/s_8.png"
-	},
-	{
-		"name":"s_9",
-		"type":"image",
-		"url":"assets/s_9.png"
-	},
-	{
-		"name":"s_10",
-		"type":"image",
-		"url":"assets/s_10.png"
-	},
-	{
-		"name":"s_11",
-		"type":"image",
-		"url":"assets/s_11.png"
-	},
-	{
-		"name":"s_12",
-		"type":"image",
-		"url":"assets/s_12.png"
-	},
-	{
-		"name":"s_13",
-		"type":"image",
-		"url":"assets/s_13.png"
-	},
-	{
-		"name":"s_14",
-		"type":"image",
-		"url":"assets/s_14.png"
-	},
-	{
-		"name":"s_15",
-		"type":"image",
-		"url":"assets/s_15.png"
-	},
-	{
-		"name":"s_16",
-		"type":"image",
-		"url":"assets/s_16.png"
-	},
-	{
-		"name":"s_17",
-		"type":"image",
-		"url":"assets/s_17.png"
-	},
-	{
-		"name":"s_18",
-		"type":"image",
-		"url":"assets/s_18.png"
-	},
-	{
-		"name":"s_19",
-		"type":"image",
-		"url":"assets/s_19.png"
-	},
-	{
-		"name":"s_20",
-		"type":"image",
-		"url":"assets/s_20.png"
-	},
-	{
-		"name":"3_1",
-		"type":"image",
-		"url":"assets/3_1.png"
-	},
-	{
-		"name":"3_5",
-		"type":"image",
-		"url":"assets/3_5.png"
-	},
-	{
-		"name":"b_1",
-		"type":"image",
-		"url":"assets/b_1.png"
-	},
-	{
-		"name":"b_2",
-		"type":"image",
-		"url":"assets/b_2.png"
-	},
-	{
-		"name":"b_3",
-		"type":"image",
-		"url":"assets/b_3.png"
 	},
 	{
 		"name":"n_1",

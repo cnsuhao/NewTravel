@@ -31,7 +31,6 @@ class Box extends egret.Sprite{
         this.addChild(this.shape);
         
         this.bmpTxt = new egret.Bitmap();
-        //this.bmp.texture = RES.getRes("3_5");
         this.addChild(this.bmpTxt);
 	}
 	
@@ -40,12 +39,12 @@ class Box extends egret.Sprite{
         var g: egret.Graphics = this.graphics;
         g.clear();
         g.lineStyle(2, 0xffffff);
-        g.beginFill(0x00ff00);
+        g.beginFill(0x000000);
         g.drawRect(0,0, w, 200);
         g.endFill();
     }
     
-    public setBg(resName: string): void
+    /*public setBg(resName: string): void
     {
         this.bmp.texture = RES.getRes(resName);
         this.bmp.scaleX = this.width / this.bmp.texture.textureWidth;
@@ -56,7 +55,7 @@ class Box extends egret.Sprite{
         g.beginFill(0x000000,0.5);
         g.drawRect(0,0,this.width,200);
         g.endFill();
-    }
+    }*/
     
     public setBmpTxt(resName: string): void
     {

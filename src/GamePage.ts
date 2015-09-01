@@ -55,7 +55,7 @@ class GamePage extends egret.Sprite{
                             { add: "曼谷",distance: 270, width: 20,res: "s_17", txt:"n_17" , bg:"d17"},
                             { add: "马尼拉",distance: 180, width: 60,res: "s_18", txt:"n_18" , bg:"d18"},
                             { add: "悉尼",distance: 100, width: 20,res: "s_19", txt:"n_19" , bg:"d19"},
-                            { add: "北京",distance: 150, width: 30,res: "s_20", txt:"n_20" , bg:"d20"}];
+                            { add: "纽约",distance: 150, width: 30,res: "s_20", txt:"n_20" , bg:"d20"}];
         
         this.createBoxes();
         this.currentBox = this.boxes[this.cursor];
@@ -90,7 +90,7 @@ class GamePage extends egret.Sprite{
             else
                 box.x = this.boxes[i - 1].x + this.boxes[i - 1].width + this.boxesInfo[i].distance;
             box.y = Global.HEIGHT - box.height;
-            box.setBg(this.boxesInfo[i].res);
+            //box.setBg(this.boxesInfo[i].res);
             box.setBmpTxt(this.boxesInfo[i].txt);
             this.addChild(box);
             this.boxes.push(box);
@@ -163,8 +163,9 @@ class GamePage extends egret.Sprite{
                 //this.status = 0;
                 this.visible = false;
                 var main: Main = <Main>this.parent;
-                main.overPage.visible = true;
+                main.completPage.visible = true;
                 main.overPage.setDest(this.boxesInfo[this.cursor].add);
+                //main.overPage.setCurrentBg(this.boxesInfo[this.cursor].bg+"_png");
             }
         }
     }
@@ -180,7 +181,8 @@ class GamePage extends egret.Sprite{
         this.nextBox = this.boxes[cursor+1];
         var main: Main = <Main>this.parent;
         if(main) {
-            main.txtGate.text = "第" + (cursor + 1) + "关";
+            main.txtGate.text = (cursor + 1) + "/20";
+            main.txtGate.visible = true;
             main.startPage.setBg(this.boxesInfo[cursor].bg + "_png");
         }
         
@@ -249,6 +251,10 @@ class GamePage extends egret.Sprite{
                 main.completPage.visible = true;
             }
         }
+        
+        var a: Array<string> = [];
+        var s: string = "";
+        
     }
     
     public dispose(): void
@@ -256,5 +262,20 @@ class GamePage extends egret.Sprite{
         this.removeEventListener(egret.TouchEvent.TOUCH_BEGIN,this.onTouchBegin,this);
         this.removeEventListener(egret.TouchEvent.TOUCH_END,this.onTouchEnd,this);
         this.removeEventListener(egret.Event.ENTER_FRAME,this.onEnterFrame,this);
+    }
+    
+    public show(): void
+    {
+        this.visible = true;
+        Global.playTimes++;
+        var d: Date = new Date();
+        var ct:number = d.getTime();
+        Global.playInfo.push({k:d.toString(), v:ct.toString()});
+        
+        if(Global.playTimes >= 11)
+        {
+            Global.playInfo[Global.playTimes - 10]
+        }
+        
     }
 }

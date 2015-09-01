@@ -21,6 +21,7 @@ class Person extends egret.Sprite{
             new egret.MovieClipDataFactory(RES.getRes("person_json"), RES.getRes("person_png"));
         this.mc = new egret.MovieClip(mcDataFactory.generateMovieClipData("person_use"));
         this.addChild(this.mc);
+        this.scaleX = this.scaleY = 0.5;
 	}
 	
     public walk(): void

@@ -34,7 +34,7 @@ class CompletePage extends egret.Sprite{
         
         var btnRetrip: egret.Bitmap = new egret.Bitmap();
         btnRetrip.texture = RES.getRes("btn_retrip_png");
-        btnRetrip.x = 60;
+        btnRetrip.x = 45;
         btnRetrip.y = 540;
         btnRetrip.touchEnabled = true;
         btnRetrip.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onRetrip,this);
@@ -42,7 +42,7 @@ class CompletePage extends egret.Sprite{
         
         var btnShare: egret.Bitmap = new egret.Bitmap();
         btnShare.texture = RES.getRes("btn_friend_share_png");
-        btnShare.x = 280;
+        btnShare.x = 265;
         btnShare.y = 540;
         btnShare.touchEnabled = true;
         btnShare.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onShare,this);

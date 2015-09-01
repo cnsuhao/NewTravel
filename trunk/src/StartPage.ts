@@ -5,7 +5,8 @@
  */
 class StartPage extends egret.Sprite{
     
-    private bmp: egret.Bitmap;
+    public bmp: egret.Bitmap;
+    private viewBg: egret.Bitmap;
     
     private tipOneStep: egret.Bitmap;
     private tipGuide: egret.Bitmap;
@@ -28,6 +29,9 @@ class StartPage extends egret.Sprite{
         this.bmp.texture = RES.getRes("common_bg_png");
         this.addChild(this.bmp);
         
+        this.viewBg = new egret.Bitmap();
+        this.addChild(this.viewBg);
+        
         this.tipOneStep = new egret.Bitmap();
         this.tipOneStep.texture = RES.getRes("tip_one_step_png");
         this.tipOneStep.x = (Global.WIDTH - this.tipOneStep.width) * 0.5;
@@ -43,7 +47,7 @@ class StartPage extends egret.Sprite{
         this.btnStart = new egret.Bitmap();
         this.btnStart.texture = RES.getRes("btn_start_png");
         this.btnStart.x = 165;
-        this.btnStart.y = 520;
+        this.btnStart.y = 620;
         this.btnStart.touchEnabled = true;
         this.btnStart.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onClick,this);
         this.addChild(this.btnStart);
@@ -56,11 +60,16 @@ class StartPage extends egret.Sprite{
         main.gamePage.reset();
         main.gamePage.init(0);
         main.txtGate.visible = true;
+        
+        this.bmp.texture = RES.getRes("game_bg_png");
     }
     
     public setBg(bgName: string): void
     {
-        this.bmp.texture = RES.getRes(bgName);
+        //this.bmp.texture = RES.getRes(bgName);
+        this.viewBg.texture = RES.getRes(bgName);
+        this.viewBg.x = (this.width - this.viewBg.texture.textureWidth) * 0.5;
+        this.viewBg.y = 20;
         
         this.tipOneStep.visible = false;
         this.tipGuide.visible = false;

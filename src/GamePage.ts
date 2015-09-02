@@ -163,7 +163,7 @@ class GamePage extends egret.Sprite{
                 //this.status = 0;
                 this.visible = false;
                 var main: Main = <Main>this.parent;
-                main.completPage.visible = true;
+                main.overPage.visible = true;
                 main.overPage.setDest(this.boxesInfo[this.cursor].add);
                 //main.overPage.setCurrentBg(this.boxesInfo[this.cursor].bg+"_png");
             }
@@ -251,10 +251,6 @@ class GamePage extends egret.Sprite{
                 main.completPage.visible = true;
             }
         }
-        
-        var a: Array<string> = [];
-        var s: string = "";
-        
     }
     
     public dispose(): void
@@ -267,15 +263,5 @@ class GamePage extends egret.Sprite{
     public show(): void
     {
         this.visible = true;
-        Global.playTimes++;
-        var d: Date = new Date();
-        var ct:number = d.getTime();
-        Global.playInfo.push({k:d.toString(), v:ct.toString()});
-        
-        if(Global.playTimes >= 11)
-        {
-            Global.playInfo[Global.playTimes - 10]
-        }
-        
     }
 }

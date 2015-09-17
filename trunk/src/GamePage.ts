@@ -27,11 +27,13 @@ class GamePage extends egret.Sprite{
         var g: egret.Graphics = this.graphics;
         //g.lineStyle(2, 0xffffff);
         g.beginFill(0x000000, 0);
-        g.drawRect(0,0, Global.WIDTH * 4, Global.HEIGHT);
+        g.drawRect(0,0, Global.WIDTH * 5, Global.HEIGHT);
         g.endFill();
         
         /*var bmp: egret.Bitmap = new egret.Bitmap();
-        bmp.texture = RES.getRes("3_1_0");
+        bmp.texture = RES.getRes("big_bg");
+        bmp.height = Global.HEIGHT;
+        bmp.width = Global.HEIGHT / bmp.texture.textureHeight * bmp.texture.textureWidth;
         this.addChild(bmp);*/
         
         //游戏格子配置信息，add:字符，可能会换成图片，distance:格子左上角距离舞台左边界的距离，width，格子的宽度
@@ -90,7 +92,7 @@ class GamePage extends egret.Sprite{
             else
                 box.x = this.boxes[i - 1].x + this.boxes[i - 1].width + this.boxesInfo[i].distance;
             box.y = Global.HEIGHT - box.height;
-            //box.setBg(this.boxesInfo[i].res);
+            //box.setBgPos(this.boxesInfo[i].res);
             box.setBmpTxt(this.boxesInfo[i].txt);
             this.addChild(box);
             this.boxes.push(box);
@@ -183,7 +185,7 @@ class GamePage extends egret.Sprite{
         if(main) {
             main.txtGate.text = (cursor + 1) + "/20";
             main.txtGate.visible = true;
-            main.startPage.setBg(this.boxesInfo[cursor].bg + "_png");
+            main.startPage.setBgPos(this.boxesInfo[cursor].bg + "_png", cursor);
         }
         
         this.persion.x = this.currentBox.x + this.currentBox.width - 15;

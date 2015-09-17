@@ -18,6 +18,8 @@ class CompletePage extends egret.Sprite{
         
         this.bmp = new egret.Bitmap();
         this.bmp.texture = RES.getRes("common_bg_png");
+        this.bmp.width = Global.WIDTH;
+        this.bmp.height = Global.HEIGHT;
         this.addChild(this.bmp);
         
         var tipRoundComplete: egret.Bitmap = new egret.Bitmap();

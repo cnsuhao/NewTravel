@@ -29,7 +29,6 @@ class StartPage extends egret.Sprite{
         this.bmp.texture = RES.getRes("common_bg_png");
         this.bmp.width = Global.WIDTH;
         this.bmp.height = Global.HEIGHT;
-        this.bmp.fillMode = egret.BitmapFillMode.SCALE;
         this.addChild(this.bmp);
         
         this.viewBg = new egret.Bitmap();
@@ -55,11 +54,11 @@ class StartPage extends egret.Sprite{
         this.btnStart.x = (Global.WIDTH - this.btnStart.texture.textureWidth) * 0.5;
         this.btnStart.y = 575;
         this.btnStart.touchEnabled = true;
-        this.btnStart.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onClick,this);
+        this.btnStart.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onStart,this);
         this.addChild(this.btnStart);
 	}
 	
-    private onClick(evt: egret.TouchEvent): void
+    private onStart(evt: egret.TouchEvent): void
     {
         var main: Main = <Main>this.parent;
         main.gamePage.visible = true;
@@ -67,15 +66,22 @@ class StartPage extends egret.Sprite{
         main.gamePage.init(0);
         main.txtGate.visible = true;
         
-        this.bmp.texture = RES.getRes("game_bg_png");
+//        this.bmp.texture = RES.getRes("game_bg_png");
+        this.bmp.texture = RES.getRes("big_bg");
+        this.bmp.height = Global.HEIGHT;
+        this.bmp.width = Global.HEIGHT / this.bmp.texture.textureHeight * this.bmp.texture.textureWidth;
     }
     
-    public setBg(bgName: string): void
+    public setBgPos(bgName: string, cursor:number): void
     {
         //this.bmp.texture = RES.getRes(bgName);
-        this.viewBg.texture = RES.getRes(bgName);
-        this.viewBg.x = (Global.WIDTH - this.viewBg.texture.textureWidth) * 0.5;
-        this.viewBg.y = 20;
+//        this.viewBg.texture = RES.getRes(bgName);
+//        this.viewBg.x = (Global.WIDTH - this.viewBg.texture.textureWidth) * 0.5;
+//        this.viewBg.y = 20;
+        var delta: number = (this.bmp.width - Global.WIDTH) / 20;
+//        this.bmp.x = -delta * cursor;
+        var tw = egret.Tween.get(this.bmp);
+        tw.to({ "x": -delta * cursor}, 400,egret.Ease.cubicOut);
         
         this.tipOneStep.visible = false;
 //        this.tipGuide.visible = false;

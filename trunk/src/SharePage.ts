@@ -18,7 +18,7 @@ class SharePage extends egret.Sprite{
                 
         var share: egret.Bitmap = new egret.Bitmap();
         share.texture = RES.getRes("share_tips_png");
-        share.x = (this.width - share.texture.textureWidth) * 0.5 + 35;
+        share.x = (this.width - share.texture.textureWidth) * 0.5;
         share.y = 20;
         this.addChild(share);
 	}

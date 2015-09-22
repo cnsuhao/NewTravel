@@ -36,9 +36,9 @@ class StartPage extends egret.Sprite{
         
         this.tipOneStep = new egret.Bitmap();
         this.tipOneStep.texture = RES.getRes("tip_one_step_png");
-        this.tipOneStep.width = Global.WIDTH * 0.9;
-        this.tipOneStep.height = 150;
-        this.tipOneStep.fillMode = egret.BitmapFillMode.SCALE;
+//        this.tipOneStep.width = Global.WIDTH * 0.9;
+//        this.tipOneStep.height = 150;
+//        this.tipOneStep.fillMode = egret.BitmapFillMode.SCALE;
         this.tipOneStep.x = (Global.WIDTH - this.tipOneStep.width) * 0.5;
         this.tipOneStep.y = 190;
         this.addChild(this.tipOneStep);

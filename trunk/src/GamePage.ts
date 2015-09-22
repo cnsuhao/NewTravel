@@ -91,7 +91,7 @@ class GamePage extends egret.Sprite{
                 box.x = this.boxesInfo[i].distance;
             else
                 box.x = this.boxes[i - 1].x + this.boxes[i - 1].width + this.boxesInfo[i].distance;
-            box.y = Global.HEIGHT - box.height;
+            box.y = Global.HEIGHT - box.height - 50;
             //box.setBgPos(this.boxesInfo[i].res);
             box.setBmpTxt(this.boxesInfo[i].txt);
             this.addChild(box);

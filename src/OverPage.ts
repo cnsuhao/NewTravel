@@ -36,10 +36,10 @@ class OverPage extends egret.Sprite{
         this.scoreTxt = new egret.TextField();
         this.scoreTxt.width = 150;
         this.scoreTxt.height = 40;
-        this.scoreTxt.size = 50;
+        this.scoreTxt.size = 35;
         this.scoreTxt.x = 290;
-        this.scoreTxt.y = 365;
-        this.scoreTxt.fontFamily = "隶书";
+        this.scoreTxt.y = 370;
+        //this.scoreTxt.fontFamily = "隶书";
         this.addChild(this.scoreTxt);
         
         var btnRestart: egret.Bitmap = new egret.Bitmap();

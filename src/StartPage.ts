@@ -40,7 +40,7 @@ class StartPage extends egret.Sprite{
 //        this.tipOneStep.height = 150;
 //        this.tipOneStep.fillMode = egret.BitmapFillMode.SCALE;
         this.tipOneStep.x = (Global.WIDTH - this.tipOneStep.width) * 0.5;
-        this.tipOneStep.y = 190;
+        this.tipOneStep.y = 120;
         this.addChild(this.tipOneStep);
         
         /*this.tipGuide = new egret.Bitmap();
@@ -52,7 +52,7 @@ class StartPage extends egret.Sprite{
         this.btnStart = new egret.Bitmap();
         this.btnStart.texture = RES.getRes("btn_start_png");
         this.btnStart.x = (Global.WIDTH - this.btnStart.texture.textureWidth) * 0.5;
-        this.btnStart.y = 575;
+        this.btnStart.y = 600;
         this.btnStart.touchEnabled = true;
         this.btnStart.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onStart,this);
         this.addChild(this.btnStart);

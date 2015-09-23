@@ -15,7 +15,7 @@ class Box extends egret.Sprite{
         
         var g: egret.Graphics = this.graphics;
         g.lineStyle(3, 0xffffff);
-        g.drawRect(0,0, 30, 200);
+        g.drawRect(0,0, 30, Global.BOX_HEIGHT);
         
         /*this.txt = new egret.TextField();
         this.txt.width = 80;
@@ -34,13 +34,13 @@ class Box extends egret.Sprite{
         this.addChild(this.bmpTxt);
 	}
 	
-    public set boxWidth(w: number)
+    public setBoxSize(width: number, height:number)
     {
         var g: egret.Graphics = this.graphics;
         g.clear();
         g.lineStyle(3, 0xffffff);
         g.beginFill(0x000000, 0.3);
-        g.drawRect(0,0, w, 200);
+        g.drawRect(0,0, width, height);
         g.endFill();
     }
     

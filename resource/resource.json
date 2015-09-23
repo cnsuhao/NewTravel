@@ -1,7 +1,7 @@
 {
 	"groups":[
 	{
-		"keys":"big_bg,over_bg_png,game_bg_png,n_7,n_8,n_9,n_10,n_11,n_12,n_13,n_14,n_15,n_16,n_17,n_18,n_19,n_20,person_json,person_png,n_1,n_2,n_3,n_4,n_5,n_6,d7_png,d8_png,d9_png,d10_png,d11_png,d12_png,d13_png,d14_png,d15_png,d16_png,d17_png,d18_png,d19_png,d20_png,d1_png,d2_png,d3_png,d4_png,d5_png,d6_png,share_tips_png,tip_success_to_png,tip_with_friend_png,btn_friend_share_png,btn_invite_png,btn_restart_png,btn_retrip_png,btn_share_png,btn_start_png,common_bg_png,tip_lose_png,tip_one_step_png,tip_round_complete_png,tip_guide_png",
+		"keys":"big_bg,over_bg_png,game_bg_png,n_7,n_8,n_9,n_10,n_11,n_12,n_13,n_14,n_15,n_16,n_17,n_18,n_19,n_20,person_json,person_png,n_1,n_2,n_3,n_4,n_5,n_6,share_tips_png,tip_success_to_png,tip_with_friend_png,btn_friend_share_png,btn_invite_png,btn_restart_png,btn_retrip_png,btn_share_png,btn_start_png,common_bg_png,tip_lose_png,tip_one_step_png,tip_round_complete_png,tip_guide_png",
 		"name":"preload"
 	}],
 	"resources":[

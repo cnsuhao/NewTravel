@@ -21,31 +21,32 @@ class OverPage extends egret.Sprite{
         this.bmp.texture = RES.getRes("over_bg_png");
         this.addChild(this.bmp);
         
-        var tipLose: egret.Bitmap = new egret.Bitmap();
-        tipLose.texture = RES.getRes("tip_lose_png");
-        tipLose.x = (this.width - tipLose.texture.textureWidth) * 0.5;;
-        tipLose.y = 240;
-        this.addChild(tipLose);
-        
+        //成功抵达
         var tipSuccessTo: egret.Bitmap = new egret.Bitmap();
         tipSuccessTo.texture = RES.getRes("tip_success_to_png");
         tipSuccessTo.x = 80;
-        tipSuccessTo.y = 370;
+        tipSuccessTo.y = 200;
         this.addChild(tipSuccessTo);
-        
+                
         this.scoreTxt = new egret.TextField();
         this.scoreTxt.width = 150;
         this.scoreTxt.height = 40;
         this.scoreTxt.size = 35;
         this.scoreTxt.x = 290;
-        this.scoreTxt.y = 370;
+        this.scoreTxt.y = 200;
         //this.scoreTxt.fontFamily = "隶书";
         this.addChild(this.scoreTxt);
+        
+        var tipLose: egret.Bitmap = new egret.Bitmap();
+        tipLose.texture = RES.getRes("tip_lose_png");
+        tipLose.x = (this.width - tipLose.texture.textureWidth) * 0.5;;
+        tipLose.y = 300;
+        this.addChild(tipLose);
         
         var btnRestart: egret.Bitmap = new egret.Bitmap();
         btnRestart.texture = RES.getRes("btn_restart_png");
         btnRestart.x = 40;
-        btnRestart.y = 540;
+        btnRestart.y = 460;
         this.addChild(btnRestart);
         btnRestart.touchEnabled = true;
         btnRestart.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onAgain,this);
@@ -53,7 +54,7 @@ class OverPage extends egret.Sprite{
         var btnFriendShare: egret.Bitmap = new egret.Bitmap();
         btnFriendShare.texture = RES.getRes("btn_friend_share_png");
         btnFriendShare.x = 270;
-        btnFriendShare.y = 540;
+        btnFriendShare.y = 460;
         this.addChild(btnFriendShare);
         btnFriendShare.touchEnabled = true;
         btnFriendShare.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onShare,this);

@@ -27,7 +27,7 @@ class GamePage extends egret.Sprite{
         var g: egret.Graphics = this.graphics;
         //g.lineStyle(2, 0xffffff);
         g.beginFill(0x000000, 0);
-        g.drawRect(0,0, Global.WIDTH * 5, Global.HEIGHT);
+        g.drawRect(0,0, Global.WIDTH * 8.76, Global.HEIGHT);
         g.endFill();
         
         /*var bmp: egret.Bitmap = new egret.Bitmap();
@@ -63,6 +63,7 @@ class GamePage extends egret.Sprite{
         this.currentBox = this.boxes[this.cursor];
         
         this.persion = new Person();
+        this.persion.stand();
         this.persion.x = this.currentBox.x + this.currentBox.width * 0.5;
         this.persion.y = this.currentBox.y;
         this.addChild(this.persion);
@@ -188,7 +189,7 @@ class GamePage extends egret.Sprite{
             main.startPage.setBgPos(this.boxesInfo[cursor].bg + "_png", cursor);
         }
         
-        this.persion.x = this.currentBox.x + this.currentBox.width - 15;
+        this.persion.x = this.currentBox.x + this.currentBox.width - 30;
         this.persion.y = this.currentBox.y;
         this.currentLine = new Line();
         this.currentLine.x = this.currentBox.x + this.currentBox.width;
@@ -224,7 +225,7 @@ class GamePage extends egret.Sprite{
         else
         {
             this.resultTag = 2;//成功
-            this.resultPos = this.nextBox.x + this.nextBox.width - 15;
+            this.resultPos = this.nextBox.x + this.nextBox.width - 30;
         }
         //console.log("xxxxxxxxxxxxxxxxxx:" + this.resultTag + ":::" + this.resultPos);
     }

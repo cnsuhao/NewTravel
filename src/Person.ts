@@ -18,8 +18,8 @@ class Person extends egret.Sprite{
         g.lineTo(0,0);*/
         
         var mcDataFactory:egret.MovieClipDataFactory = 
-            new egret.MovieClipDataFactory(RES.getRes("person_json"), RES.getRes("person_png"));
-        this.mc = new egret.MovieClip(mcDataFactory.generateMovieClipData("person_use"));
+            new egret.MovieClipDataFactory(RES.getRes("personv3_json"), RES.getRes("personv3_png"));
+        this.mc = new egret.MovieClip(mcDataFactory.generateMovieClipData("person3-run"));
         this.addChild(this.mc);
         this.scaleX = this.scaleY = 0.5;
 	}
@@ -31,7 +31,7 @@ class Person extends egret.Sprite{
     
     public stand(): void
     {
-        this.mc.gotoAndStop(1);
+        this.mc.gotoAndStop(3);
     }
 	
 }

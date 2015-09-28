@@ -86,8 +86,7 @@ class Main extends egret.DisplayObjectContainer {
     public sharePage: SharePage;
     
     private createGameScene():void {
-        
-        Global.viewHeight = bodySize();
+        Global.stageHeight = this.stage.stageHeight;
         
         this.txtGate = new egret.TextField();
         //this.txtGate.type = egret.TextFieldType.INPUT;
@@ -98,9 +97,10 @@ class Main extends egret.DisplayObjectContainer {
         this.txtGate.size = 14;
         this.txtGate.width = 100;
         this.txtGate.height = 30;
-        this.txtGate.text = "第1关" + Global.viewHeight + ";" + this.stage.stageHeight;
+        this.txtGate.text = "第1关";
         
-        //this.txtGate.visible = false;
+        this.txtGate.visible = false;
+        
         
         this.startPage = new StartPage();
         this.addChild(this.startPage);

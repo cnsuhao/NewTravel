@@ -87,6 +87,8 @@ class Main extends egret.DisplayObjectContainer {
     
     private createGameScene():void {
         
+        Global.viewHeight = bodySize();
+        
         this.txtGate = new egret.TextField();
         //this.txtGate.type = egret.TextFieldType.INPUT;
         //this.txtGate.border = true;
@@ -96,9 +98,9 @@ class Main extends egret.DisplayObjectContainer {
         this.txtGate.size = 14;
         this.txtGate.width = 100;
         this.txtGate.height = 30;
-        this.txtGate.text = "第1关";
+        this.txtGate.text = "第1关" + Global.viewHeight + ";" + this.stage.stageHeight;
         
-        this.txtGate.visible = false;
+        //this.txtGate.visible = false;
         
         this.startPage = new StartPage();
         this.addChild(this.startPage);
@@ -121,57 +123,7 @@ class Main extends egret.DisplayObjectContainer {
         this.overPage.visible = false;
         this.completPage.visible = false;
         this.sharePage.visible = false;
-        
-        var cacheData:string = egret.localStorage.getItem("cache");
-        if(!cacheData)
-        {
-            cacheData = "";
-            egret.localStorage.setItem("cache", cacheData);
-        }
-        Global.cacheData = cacheData;
     }
-
-    /*private enterGame(evt: egret.Event): void
-    {
-        this.gamePage = new GamePage();
-        this.gamePage.addEventListener(ResultEvent.RESULT, this.onFail, this);
-        this.addChild(this.gamePage);
-        this.setChildIndex(this.txtGate,this.numChildren - 1);
-        this.txtGate.visible = true;
-    }
-    
-    private onFail(evt: ResultEvent)
-    {
-        this.gamePage.removeEventListener(ResultEvent.RESULT, this.onFail, this);
-        this.overPage = new OverPage();
-        this.overPage.setDest(evt.dest);
-        this.gamePage.dispose();
-        this.removeChild(this.gamePage);
-        this.addChild(this.overPage);
-        this.overPage.addEventListener("again", this.onAgain, this);
-    }
-    
-    private onAgain(evt: egret.Event): void
-    {
-        this.overPage.removeEventListener("again", this.onAgain, this);
-        this.removeChild(this.overPage);
-        this.txtGate.text = "第1关";
-        this.gamePage = new GamePage();
-        this.gamePage.addEventListener(ResultEvent.RESULT, this.onFail, this);
-        this.addChild(this.gamePage);
-        this.setChildIndex(this.txtGate,this.numChildren - 1);
-        this.txtGate.visible = true;
-    }
-    
-    public addCompletePage(): void
-    {
-        if(!this.completPage)
-        {
-            this.completPage = new CompletePage();
-            this.addChild(this.completPage);
-        }
-    }*/
-
 }
 
 

@@ -3,6 +3,8 @@
  * @author 
  *
  */
+declare function bodySize(): number;
+
 class Global {
 	public constructor() {
 	}
@@ -17,4 +19,6 @@ class Global {
     
     public static BOX_HEIGHT: number = 200;
     public static BOX_OFFSET: number = 0;
+    
+    public static viewHeight: number = 0;
 }

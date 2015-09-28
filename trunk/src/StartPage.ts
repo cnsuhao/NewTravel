@@ -52,7 +52,7 @@ class StartPage extends egret.Sprite{
         this.btnStart = new egret.Bitmap();
         this.btnStart.texture = RES.getRes("btn_start_png");
         this.btnStart.x = (Global.WIDTH - this.btnStart.texture.textureWidth) * 0.5;
-        this.btnStart.y = Global.viewHeight - 600;
+        this.btnStart.y = Global.stageHeight - 180;
         this.btnStart.touchEnabled = true;
         this.btnStart.addEventListener(egret.TouchEvent.TOUCH_TAP,this.onStart,this);
         this.addChild(this.btnStart);
